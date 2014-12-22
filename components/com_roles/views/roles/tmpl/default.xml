@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <layoyt title="COM_ROLES_ROLES_VIEW_DEFAULT_TITLE">
+        <message>COM_ROLES_ROLES_VIEW_DEFAULT_TITLE</message>
+    </layoyt>
+    
+    <fields name="request">
+        <field
+            name="id"
+            type="list"
+            label="COM_ROLES_ROLES_FIELD_GREETING_LABEL"
+            description="COM_HELLOWORLD_HELLOWORLD_FIELD_GREETING_DESC"
+            default="1">
+            <option value="1">Users management</option>
+            <option value="2">Roles management</option>
+        </field>
+    </fields>
+</metadata>
