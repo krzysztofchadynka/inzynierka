@@ -4,24 +4,29 @@ jimport('joomla.application.component.view');
 
 class RolesViewRoles extends JViewLegacy
 {
-    function display($tpl = null)
+    private function getVariables($items, $pagination)
     {
-        // get data from the model
-        $items = $this->get('Items');
-        $pagination = $this->get('Pagination');
-        
-        // check for errors
+        $this->items = $items;
+        $this->pagination = $pagination;
+        $this->msg = $this->get('Msg');
+    }
+    
+    private function displayErrors()
+    {
         if (count($errors = $this->get('Errors')))
         {
             JError::raiseError(500, implode('<br />', $errors));
             return false;
         }
-        
-        // assign data to the view
-        $this->items = $items;
-        $this->pagination = $pagination;
-        
-        // display the template
+    }
+    
+    function display($tpl = null)
+    {
+        $items = $this->get('Items');
+        $pagination = $this->get('Pagination');
+        $this->displayErrors();
+        $this->getVariables($items, $pagination);
+       
         parent::display($tpl);
     }
 }
