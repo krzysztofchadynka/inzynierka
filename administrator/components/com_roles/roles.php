@@ -1,8 +1,11 @@
 <?php
+defined ('_JEXEC') or die('Restricted access');
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// get an instance of the controller prefixed by Roles
+$controller = JControllerLegacy::getInstance('Roles');
 
+// perform the request task and execute request task
+$controller->execute(JFactory::getApplication()->input->getCmd('task'));
+
+// redirect if set by the controller
+$controller->redirect();

@@ -10,18 +10,6 @@
     
     <description>Description ...</description>
     
-    <install>
-        <sql>
-            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
-        </sql>
-    </install>
-    
-    <uninstall>
-        <sql>
-            <file driver="mysql" charset="utf8">sql/unistall.mysql.utf8.sql</file>
-        </sql>
-    </uninstall>
-                
     <update>
         <schemas>
             <schemapath type="mysql">sql/updates/mysql/</schemapath>
@@ -31,8 +19,6 @@
     <files folder="site">
         <filename>index.html</filename>
         <filename>roles.php</filename>
-        <filename>controller.php</filename>
-        <folder>views</folder>
     </files>
     
     <administration>
@@ -40,11 +26,8 @@
         <files folder="admin">
             <filename>index.html</filename>
             <filename>roles.php</filename>
-            <filename>controller.php</filename>
             <folder>sql</folder>
-            <folder>tables</folder>
-            <folder>models</folder>
-            <folder>views</folder>
         </files>
     </administration>
 </extension>
+
