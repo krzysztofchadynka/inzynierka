@@ -37,7 +37,7 @@ class RolesModelRoles extends JModelList
     {
         $db = JFactory::getDBO();
         $query = $db->getQuery(true);
-        $query->select('user_id, role_id')->from('#__roles_user');
+        $query->select('user_id, role_id')->from('#__user');
         
         return $query;
     }
