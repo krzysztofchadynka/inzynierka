@@ -2,13 +2,14 @@
 defined ('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
-class RolesViewRoles extends JViewLegacy
+class RolesViewUsers extends JViewLegacy
 {
-    private function getVariables($items, $pagination)
+    private function getVariables($items ,$pagination)
     {
         $this->items = $items;
         $this->pagination = $pagination;
         $this->msg = $this->get('Msg');
+        $this->users = $this->get('Users');
     }
     
     private function displayErrors()
@@ -28,5 +29,13 @@ class RolesViewRoles extends JViewLegacy
         $this->getVariables($items, $pagination);
        
         parent::display($tpl);
+    }
+    
+    protected function addToolBar()
+    {
+        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USER'));
+        JToolbarHelper::deleteList('', 'users.delete');
+        JToolbarHelper::editList('users.edit');
+        JToolbarHelper::addNew('users.add');
     }
 }
