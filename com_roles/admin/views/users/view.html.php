@@ -35,7 +35,7 @@ class RolesViewUsers extends JViewLegacy
     {
         JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USER'));
         JToolbarHelper::deleteList('', 'users.delete');
-        JToolbarHelper::editList('users.edit');
-        JToolbarHelper::addNew('users.add');
+        JToolbarHelper::editList('roles.edit');
+        JToolbarHelper::addNew('roles.add');
     }
 }

@@ -28,14 +28,16 @@ class RolesViewUsers extends JViewLegacy
         $this->displayErrors();
         $this->getVariables($items, $pagination);
        
+        $this->addToolBar();
+        
         parent::display($tpl);
     }
     
     protected function addToolBar()
     {
-        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USERS'));
+        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USER'));
         JToolbarHelper::deleteList('', 'users.delete');
-        JToolbarHelper::editCss('users.edit');
-        JToolbarHelper::addNew('users.add');
+        JToolbarHelper::editList('roles.edit');
+        JToolbarHelper::addNew('roles.add');
     }
 }
