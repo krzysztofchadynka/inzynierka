@@ -2,7 +2,6 @@
 defined ('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 jimport('joomla.application.component.modelitem');
-require_once(JPATH_COMPONENT_SITE.'\classes\users.php');
 
 define("UM", "COM_ROLES_USER_MANAGEMENT_HEADER");
 define("RM", "COM_ROLES_ROLES_MANAGEMENT_HEADER");
@@ -10,7 +9,6 @@ define("RM", "COM_ROLES_ROLES_MANAGEMENT_HEADER");
 class RolesModelUsers extends JModelList
 {
     protected $msg;
-    protected $users;
     
     private function setAction($id)
     {
@@ -33,13 +31,6 @@ class RolesModelUsers extends JModelList
             $this->setAction(JFactory::getApplication()->input->get('id', 1, 'INT'));
         
         return $this->msg;
-    }
-    
-    public function getUsers()
-    {
-        $query = new Users();
-        
-        return $query->getAllUsers();
     }
     
     protected function getListQuery()

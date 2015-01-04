@@ -34,11 +34,10 @@
         <filename>controller.php</filename>
         <folder>views</folder>
         <folder>language</folder>
-        <folder>classes</folder>
     </files>
     
     <administration>
-        <menu>Roles Management</menu>
+        <menu>"Roles Management"</menu>
         <files folder="admin">
             <filename>index.html</filename>
             <filename>roles.php</filename>

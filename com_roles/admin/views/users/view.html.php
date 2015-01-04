@@ -28,6 +28,8 @@ class RolesViewUsers extends JViewLegacy
         $this->displayErrors();
         $this->getVariables($items, $pagination);
        
+        $this->addToolBar();
+        
         parent::display($tpl);
     }
     

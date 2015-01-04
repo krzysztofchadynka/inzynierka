@@ -1,13 +1,11 @@
 <?php
-defined ('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controlleradmin');
 
 class RolesControllerUsers extends JControllerAdmin
 {
-    public function getModel($name = 'Users', $prefix = 'RolesModel') {
-        $model = parent::getModel($name, $prefix, array('ignore_request' => true));
-    
-        return $model;
+    public function getModel($name = 'Roles', $prefix = 'RolesModel') 
+    {
+        parent::getModel($name, $prefix, array('ignore_request' => true));
     }
 }
-
