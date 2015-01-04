@@ -1,8 +1,4 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-jimport('joomla.application.component.controllerform');
+jimport('joomla.application.component.controlleradmin');
 
-class RolesControllerRoles extends JControllerForm
-{
-    
-}

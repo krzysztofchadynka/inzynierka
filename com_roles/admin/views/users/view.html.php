@@ -8,8 +8,6 @@ class RolesViewUsers extends JViewLegacy
     {
         $this->items = $items;
         $this->pagination = $pagination;
-        $this->msg = $this->get('Msg');
-        $this->users = $this->get('Users');
     }
     
     private function displayErrors()
@@ -27,17 +25,17 @@ class RolesViewUsers extends JViewLegacy
         $pagination = $this->get('Pagination');
         $this->displayErrors();
         $this->getVariables($items, $pagination);
-       
         $this->addToolBar();
         
         parent::display($tpl);
     }
     
+    // setting the toolbar
     protected function addToolBar()
     {
-        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USER'));
+        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USERS'));
         JToolbarHelper::deleteList('', 'users.delete');
-        JToolbarHelper::editList('roles.edit');
-        JToolbarHelper::addNew('roles.add');
+        JToolbarHelper::editList('user.edit');
+        JToolbarHelper::addNew('user.add');
     }
 }

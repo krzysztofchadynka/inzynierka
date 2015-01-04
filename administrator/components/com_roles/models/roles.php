@@ -1,33 +1,15 @@
 <?php
-defined('_JEXEC') or die('Restricted access');
-jimport('joomla.application.component.modeladmin');
+defined ('_JEXEC') or die('Restricted access');
+jimport('joomla.application.component.modellist');
 
-class RolesModelRoles extends JModelAdmin
+class RolesModelRoles extends JModelList
 {
-    public function getTable($type = 'Roles', $prefix = 'RolesTable', $config = array()) 
+    protected function getListQuery() 
     {
-        return JTable::getInstance($type, $prefix, $config);
+        $db = JFactory::getDbo();
+        $query = $db->getQuery('true');
+        $query->select('*')->from('#__roles_role');
+        
+        return $query;
     }
-    
-    public function getForm($data = array(), $loadData = true) 
-    {
-        // get the form
-        $form = $this->loadForm('com_roles.roles', 'roles', array('control' => 'jform', 'load_data' => $loadData));
-        
-        if (empty($form))
-            return false;
-        
-        return $form;
-    }
-    
-    protected function loadFormData() 
-    {
-        // check the session for previously entered form data.
-        $data = JFactory::getApplication()->getUserState('com_roles.edit.roles.data', array());
-        
-        if (empty($data))
-            $data = $this->getItem();
-        
-        return $data;
-    }
-}
+} 

@@ -4,8 +4,9 @@ jimport('joomla.application.component.controlleradmin');
 
 class RolesControllerUsers extends JControllerAdmin
 {
-    public function getModel($name = 'Roles', $prefix = 'RolesModel') 
+    public function getModel($name = 'User', $prefix = 'RolesModel')
     {
-        parent::getModel($name, $prefix, array('ignore_request' => true));
+        $model = parent::getModel($name, $prefix, array('ignore_request' => true));
+        return $model;
     }
 }

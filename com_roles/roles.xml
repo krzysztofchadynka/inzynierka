@@ -37,7 +37,11 @@
     </files>
     
     <administration>
-        <menu>"Roles Management"</menu>
+        <menu link="option=com_roles">COM_ROLES_MENU</menu>
+        <submenu>
+            <menu link="option=com_roles&amp;view=users">COM_ROLES_SUBMENU_USERS</menu>
+            <menu link="option=com_roles&amp;view=roles">COM_ROLES_SUBMENU_ROLES</menu>
+        </submenu>
         <files folder="admin">
             <filename>index.html</filename>
             <filename>roles.php</filename>
@@ -46,8 +50,8 @@
             <folder>tables</folder>
             <folder>models</folder>
             <folder>views</folder>
-            <folder>language</folder>
             <folder>controllers</folder>
+            <folder>language</folder>
         </files>
     </administration>
 </extension>
