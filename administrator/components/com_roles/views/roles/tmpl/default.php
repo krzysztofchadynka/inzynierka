@@ -7,4 +7,9 @@
         <thead><?= $this->loadTemplate('head'); ?></thead>
         <tbody><?= $this->loadTemplate('body'); ?></tbody>
     </table>
+    <div>
+        <input type="hidden" name="task" value="" />
+        <input type="hidden" name="boxchecked" value="0" />
+        <?= JHtml::_('form.token'); ?>
+    </div>
 </form>

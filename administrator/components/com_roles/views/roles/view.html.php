@@ -18,7 +18,16 @@ class RolesViewRoles extends JViewLegacy
         $items = $this->get('Items');
         $this->displayErrors();
         $this->items = $items;
+        $this->addToolBar();
         
         parent::display($tpl);
+    }
+    
+    public function addToolBar()
+    {
+        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_ROLES'));
+        JToolbarHelper::deleteList('', 'roles.delete');
+        JToolbarHelper::editList('role.edit');
+        JToolbarHelper::addNew('role.add');
     }
 }
