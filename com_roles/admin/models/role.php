@@ -29,4 +29,11 @@ class RolesModelRole extends JModelAdmin
         
         return $data;
     }
+    
+    public function getCategories()
+    {
+        $model = JModelLegacy::getInstance('Categories', 'RolesModel', array('ignore_request' => true));
+        
+        return $model->getItems();
+    }
 }

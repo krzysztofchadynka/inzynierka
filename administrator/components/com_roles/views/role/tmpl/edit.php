@@ -5,6 +5,9 @@ JHtml::_('behavior.tooltip');
 $url = 'index.php?option=com_roles&layout=edit&id='.(int)$this->item->role_id;
 ?>
 
+
+    <?php //print_r($this->categories); ?>
+
 <form action="<?= JRoute::_($url); ?>" method="post" name="adminForm" id="adminForm">
     <div class="form-horizontal">
         <fieldset class="adminform">

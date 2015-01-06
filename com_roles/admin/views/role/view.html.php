@@ -4,12 +4,10 @@ jimport('joomla.application.component.view');
 
 class RolesViewRole extends JViewLegacy
 {
+    protected $form, $item, $categories;
+    
     public function display($tpl = null) 
     {
-        // get the data
-        $form = $this->get('Form');
-        $item = $this->get('Item');
-        
         // Check for errors.
         if (count($errors = $this->get('Errors'))) 
         {
@@ -18,8 +16,9 @@ class RolesViewRole extends JViewLegacy
         }
         
         // assign the data
-        $this->form = $form;
-        $this->item = $item;
+        $this->form = $this->get('Form');
+        $this->item = $this->get('Item');
+        $this->categories = $this->get('Categories');
         
         // set the toolbar
         $this->addToolBar();
