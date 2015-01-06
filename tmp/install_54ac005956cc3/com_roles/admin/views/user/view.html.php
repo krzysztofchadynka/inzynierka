@@ -2,29 +2,28 @@
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
-class RolesViewRole extends JViewLegacy
+class RolesViewUser extends JViewLegacy
 {
     public function display($tpl = null) 
     {
-        // get the data
+        // get the Data
         $form = $this->get('Form');
         $item = $this->get('Item');
         
-        // Check for errors.
-        if (count($errors = $this->get('Errors'))) 
+        // check for errors.
+        if (count($errors = $this->get('Errors')))
         {
             JError::raiseError(500, implode('<br />', $errors));
             return false;
         }
         
-        // assign the data
+        // assign the Data
         $this->form = $form;
         $this->item = $item;
         
         // set the toolbar
         $this->addToolBar();
         
-        // display the template
         parent::display($tpl);
     }
     
@@ -33,9 +32,8 @@ class RolesViewRole extends JViewLegacy
         $input = JFactory::getApplication()->input;
         $input->set('hidemainmenu', true);
         $isNew = ($this->item->id == 0);
-        
-        JToolbarHelper::title($isNew ? JText::_('COM_ROLES_MANAGER_ROLE_NEW') : JText::_('COM_ROLES_MANAGER_ROLE_EDIT'));
-        JToolbarHelper::save('role.save');
-        JToolbarHelper::cancel('role.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+        JToolbarHelper::title($isNew ? JText::_('COM_ROLES_MANAGER_USER_NEW') : JText::_('COM_ROLES_MANAGER_USER_EDIT'));
+        JToolbarHelper::save('user.save');
+        JToolbarHelper::cancel('user.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
     }
 }

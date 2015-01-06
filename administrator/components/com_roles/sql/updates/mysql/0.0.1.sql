@@ -9,5 +9,10 @@ CREATE TABLE IF NOT EXISTS `#__roles_role` (
     PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `#__roles_articles` (
+    `role_id` int(11) NOT NULL,
+    `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+
 INSERT INTO `#__roles_role` (`name`)
 VALUES ('student'), ('employee'), ('vip');

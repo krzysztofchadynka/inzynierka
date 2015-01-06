@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS `#__roles_user`;
 DROP TABLE IF EXISTS `#__roles_role`;
+DROP TABLE IF EXISTS `#__roles_articles`;
 
 CREATE TABLE `#__roles_user` (
     `user_id` int(11) NOT NULL,
@@ -16,8 +17,6 @@ CREATE TABLE `#__roles_articles` (
     `role_id` int(11) NOT NULL,
     `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
-
-
 
 INSERT INTO `#__roles_role` (`name`)
 VALUES ('student'), ('employee'), ('vip');
