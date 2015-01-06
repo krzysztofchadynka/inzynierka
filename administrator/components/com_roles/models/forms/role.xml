@@ -2,8 +2,7 @@
 <form>
     <fieldset>
         <field name="role_id" type="hidden" />
-        <filed name="name" type="text" label="COM_ROLES_ROLE_NAME_LABEL"
-            description="COM_ROLES_ROLE_NAME_DESC" size="40" class="inputbox" 
-            default="" />
+        <field name="name" type="text" label="COM_ROLES_ROLE_NAME_LABEL" 
+            description="COM_ROLES_ROLE_NAME_DESC" size="40" class="inputbox" default="" />
     </fieldset>
 </form>

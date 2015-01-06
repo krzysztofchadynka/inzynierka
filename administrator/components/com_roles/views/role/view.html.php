@@ -10,8 +10,8 @@ class RolesViewRole extends JViewLegacy
         $form = $this->get('Form');
         $item = $this->get('Item');
         
-        // check for errors
-        if (count($errors = $this->get('Errors')))
+        // Check for errors.
+        if (count($errors = $this->get('Errors'))) 
         {
             JError::raiseError(500, implode('<br />', $errors));
             return false;
@@ -24,17 +24,16 @@ class RolesViewRole extends JViewLegacy
         // set the toolbar
         $this->addToolBar();
         
+        // display the template
         parent::display($tpl);
     }
     
     protected function addToolBar()
     {
-        $input = JFactory::getApplication()->input; 
+        $input = JFactory::getApplication()->input;
         $input->set('hidemainmenu', true);
-        $isNew = ($this->item->role_id == 0);
+        $isNew = ($this->item->id == 0);
         
-        JToolbarHelper::title($isNew ? JText::_('COM_ROLES_MANAGER_ROLE_NEW') : JText::_('COM_ROLES_ROLE_EDIT'));
-        JToolbarHelper::save('role.save');
-        JToolbarHelper::cancel('role.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+        JToolbarHelper::title($isNew ? JText::_('COM_ROLES_MANAGER_ROLE_NEW') : JText::_('COM_ROLES_MANAGER_ROLE_EDIT'));
     }
 }
