@@ -1,11 +1,13 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modelitem');
+jimport( 'joomla.application.module.helper' );
 
 class RolesModelRoles extends JModelItem
 {   
     private $user;
-    protected $username, $userrole, $categories;
+    protected $username, $userrole, $categories, $is_guest,
+            $login_form;
     
     public function __construct($config = array()) 
     {
@@ -60,5 +62,19 @@ class RolesModelRoles extends JModelItem
     public function getUsername()
     {
         return $this->user->name.' ('.$this->user->username.')';
+    }
+    
+    public function getisGuest()
+    {
+        if ($this->user->guest)
+            return true;
+        
+        return false;
+    }
+    
+    public function getLoginForm()
+    {
+        $module = JModuleHelper::getModule( 'login', '' );
+        return JModuleHelper::renderModule($module); 
     }
 }

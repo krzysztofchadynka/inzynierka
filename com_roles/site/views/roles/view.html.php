@@ -9,6 +9,8 @@ class RolesViewRoles extends JViewLegacy
         $this->info = $this->get('Info');
         $this->username = $this->get('Username');
         $this->userrole = $this->get('Userrole');
+        $this->is_guest = $this->get('isGuest');
+        $this->login_form = $this->get('LoginForm');
         //$this->categories = $this->get("Categories");
     }
     

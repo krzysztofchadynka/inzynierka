@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `#__roles_info` (
     `image` varchar(128),
     `user_info` varchar(128),
     `role_info` varchar(128),
+    `categories_info` varchar(128),
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -35,7 +36,7 @@ INSERT INTO `#__roles_categories` (`role_id`, `category_id`)
 VALUES (1,2), (2,2), (3,2);
 
 INSERT INTO `#__roles_info` 
-(`header`, `description`, `user_info`, `role_info`)
+(`header`, `description`, `user_info`, `role_info`, `categories_info`)
 VALUES 
 ('COM_ROLES_INFO_HEADER', 'COM_ROLES_INFO_DESC', 'COM_ROLES_INFO_USERINFO',
-'COM_ROLES_INFO_ROLE_INFO');
+'COM_ROLES_INFO_ROLE_INFO', 'COM_ROLES_INFO_CAT_INFO');
