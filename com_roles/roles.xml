@@ -42,6 +42,7 @@
         <submenu>
             <menu link="option=com_roles&amp;view=users">COM_ROLES_SUBMENU_USERS</menu>
             <menu link="option=com_roles&amp;view=roles">COM_ROLES_SUBMENU_ROLES</menu>
+            <menu link="option=com_roles&amp;view=categories">COM_ROLES_SUBMENU_CATEGORIES</menu>
         </submenu>
         <files folder="admin">
             <filename>index.html</filename>

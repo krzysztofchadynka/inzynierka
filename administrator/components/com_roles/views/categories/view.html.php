@@ -4,13 +4,13 @@ jimport('joomla.application.component.view');
 
 class RolesViewCategories extends JViewLegacy
 {
-    private function getData()
+    private function setData()
     {
         $this->items = $this->get('Items');
         $this->pagination = $this->get('Pagination');
     }
     
-    private function checkForErrors($errors)
+    private function displayErrors($errors)
     {
         if (count($errors))
         {
@@ -21,8 +21,8 @@ class RolesViewCategories extends JViewLegacy
     
     public function display($tpl = null) 
     {
-        $this->getData();
-        $this->checkForErrors($this->get('Errors'));
+        $this->setData();
+        $this->displayErrors($this->get('Errors'));
         
         parent::display($tpl);
     }
