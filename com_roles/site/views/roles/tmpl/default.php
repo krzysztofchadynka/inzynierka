@@ -1,10 +1,8 @@
 <?php defined ('_JEXEC') or die('Restricted access'); ?>
-<pre>
-    <?php print_r($this->info); ?>
-</pre>
 
 <div id="com_roles_site">
     <?php if (!$this->is_guest): ?>
+        <?php $cat_count = count($this->categories); ?>
         <div id="com_roles_site_header">
             <h2><?= JText::_($this->info[0]['header']); ?></h2>
             <p><?= JText::_($this->info[0]['description']); ?></p>
@@ -12,7 +10,12 @@
         <div id="com_roles_site_info">
             <p><?= JText::_($this->info[0]['user_info']); ?>: <strong><?= $this->username; ?></strong></p>
             <p><?= JText::_($this->info[0]['role_info']); ?>: <strong><?= $this->userrole; ?></strong></p>
-            <p><?= JText::_($this->info[0]['categories_info']); ?>: <strong></strong></p>
+            <p><?= JText::_($this->info[0]['categories_info']); ?>:</p>
+            <ul>
+            <?php for ($i = 0; $i < $cat_count; $i++): ?>
+                <li><?= $this->categories[$i]['title']; ?></li>
+            <?php endfor; ?>
+            </ul>
         </div>
    <?php else: ?>
         <div id="com_roles_site_header">

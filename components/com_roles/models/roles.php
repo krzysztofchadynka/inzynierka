@@ -51,9 +51,9 @@ class RolesModelRoles extends JModelItem
     {
         $db = JFactory::getDBO();
         $query = "SELECT c.title FROM #__categories c "
-                . "LEFT JOIN #__roles_categories rc "
-                . "ON rc.category_id=c.id "
-                . "AND rc.role_id=".$this->getRoleID();
+                . "JOIN #__roles_categories rc "
+                . "ON c.id=rc.category_id "
+                . "WHERE rc.role_id=".$this->getRoleID();
         $db->setQuery($query);
         
         return $db->loadAssocList();
