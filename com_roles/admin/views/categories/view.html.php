@@ -19,10 +19,19 @@ class RolesViewCategories extends JViewLegacy
         }
     }
     
+    protected function addToolBar()
+    {
+        JToolBarHelper::title(JText::_('COM_ROLES_MANAGER_CATEGORIES'));
+        JToolBarHelper::deleteList('', 'categories.delete');
+        JToolBarHelper::editList('category.edit');
+        JToolBarHelper::addNew('category.add');
+    }
+
     public function display($tpl = null) 
     {
         $this->setData();
         $this->displayErrors($this->get('Errors'));
+        $this->addToolBar();
         
         parent::display($tpl);
     }
