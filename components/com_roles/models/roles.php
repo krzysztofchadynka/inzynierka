@@ -59,6 +59,6 @@ class RolesModelRoles extends JModelItem
     
     public function getUsername()
     {
-        return $this->user->name;
+        return $this->user->name.' ('.$this->user->username.')';
     }
 }
