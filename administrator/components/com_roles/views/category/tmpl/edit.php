@@ -4,7 +4,7 @@ JHtml::_('behavior.tooltip');
 $url = 'index.php?option=com_roles&layout=edit&id='.(int)$this->item->id;
 ?>
 
-<form action="<?= JRoute::_($url); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?= $url; ?>" method="post" name="adminForm" id="adminForm">
     <div class="form-horizontal">
         <fieldset class="adminform">
             <legend><?= JText::_('COM_ROLES_CATEGORY_DETAILS'); ?></legend>
@@ -20,6 +20,7 @@ $url = 'index.php?option=com_roles&layout=edit&id='.(int)$this->item->id;
             </div>
         </fieldset>
     </div>
+    
     <input type="hidden" name="task" value="category.edit" />
     <?= JHtml::_('form.token'); ?>
 </form>

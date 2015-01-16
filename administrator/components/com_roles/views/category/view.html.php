@@ -4,13 +4,13 @@ jimport('joomla.application.component.view');
 
 class RolesViewCategory extends JViewLegacy
 {
-    private function setData()
+    private function assignData()
     {
         $this->form = $this->get('Form');
         $this->item = $this->get('Item');
     }
     
-    private function displayErrors($errors)
+    private function checkForErrors($errors)
     {
         if (count($errors))
         {
@@ -24,8 +24,11 @@ class RolesViewCategory extends JViewLegacy
         $input = JFactory::getApplication()->input;
         $input->set('hidemainmenu', true);
         $isNew = ($this->item->id == 0);
-        JToolBarHelper::title($isNew ? JText::_('COM_ROLES_MANAGER_CATEGORY_NEW') : JText::_('COM_ROLES_MANAGER_CATEGORY_EDIT'));
+        
+        JToolbarHelper::title($isNew ? JText::_('COM_ROLES_MANAGER_CATEGORY_NEW') 
+                : JText::_('COM_ROLES_MANAGER_CATEGORY_EDIT'));
         JToolbarHelper::save('category.save');
-        JToolBarHelper::cancel('category.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+        JToolbarHelper::cancel('category.cancel', $isNew ? 'JTOOLBAR_CANCEL' 
+                : 'JTOOLBAR_CLOSE');
     }
 }
