@@ -1,41 +1,32 @@
 <?php
-defined ('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
 class RolesViewUsers extends JViewLegacy
 {
-    private function getVariables($items ,$pagination)
+    private function showErrors($errors)
     {
-        $this->items = $items;
-        $this->pagination = $pagination;
-    }
-    
-    private function displayErrors()
-    {
-        if (count($errors = $this->get('Errors')))
+        if (count($errors)) 
         {
             JError::raiseError(500, implode('<br />', $errors));
             return false;
         }
     }
     
-    function display($tpl = null)
+    protected function addToolBar() 
     {
-        $items = $this->get('Items');
-        $pagination = $this->get('Pagination');
-        $this->displayErrors();
-        $this->getVariables($items, $pagination);
-        $this->addToolBar();
-        
-        parent::display($tpl);
+        JToolBarHelper::title(JText::_('COM_ROLES_MANAGER_USERS'));
+        JToolBarHelper::deleteList('', 'users.delete');
+        JToolBarHelper::editList('user.edit');
+        JToolBarHelper::addNew('user.add');
     }
     
-    // setting the toolbar
-    protected function addToolBar()
+    function display($tpl = null) 
     {
-        JToolbarHelper::title(JText::_('COM_ROLES_MANAGER_USERS'));
-        JToolbarHelper::deleteList('', 'users.delete');
-        JToolbarHelper::editList('user.edit');
-        JToolbarHelper::addNew('user.add');
+        $this->showErrors($this->get('Errors'));
+        $this->items = $this->get('Items');
+        $this->pagination = $this->get('Pagination');
+        $this->addToolBar();
+        parent::display($tpl);
     }
 }

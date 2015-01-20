@@ -1,8 +1,10 @@
-<?php defined ('_JEXEC') or die('Restricted access'); ?>
-
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted Access');
+?>
 <tr>
-    <th width="20"><?= JHtml::_('grid.checkall'); ?></th>
-    <th><?= JText::_('COM_ROLES_HEADING_USER_ID'); ?></th>
+    <th><?= JHtml::_('grid.checkall'); ?></th>
+    <th class="inactive"></th>
     <th><?= JText::_('COM_ROLES_HEADING_USER_NAME'); ?></th>
     <th><?= JText::_('COM_ROLES_HEADING_USER_ROLE'); ?></th>
 </tr>

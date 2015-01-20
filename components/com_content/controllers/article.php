@@ -266,16 +266,16 @@ class ContentControllerArticle extends JControllerForm
 	 */
 	protected function getReturnPage()
 	{
-		$return = $this->input->get('return', null, 'base64');
+            $return = $this->input->get('return', null, 'base64');
 
-		if (empty($return) || !JUri::isInternal(base64_decode($return)))
-		{
-			return JUri::base();
-		}
-		else
-		{
-			return base64_decode($return);
-		}
+            if (empty($return) || !JUri::isInternal(base64_decode($return)))
+            {
+                return JUri::base();
+            }
+            else
+            {
+                return base64_decode($return);
+            }
 	}
 
 	/**
@@ -305,15 +305,15 @@ class ContentControllerArticle extends JControllerForm
 	 */
 	public function save($key = null, $urlVar = 'a_id')
 	{
-		$result = parent::save($key, $urlVar);
+            $result = parent::save($key, $urlVar);
 
-		// If ok, redirect to the return page.
-		if ($result)
-		{
-			$this->setRedirect($this->getReturnPage());
-		}
+            // If ok, redirect to the return page.
+            if ($result)
+            {
+                    $this->setRedirect($this->getReturnPage());
+            }
 
-		return $result;
+            return $result;
 	}
 
 	/**
@@ -332,19 +332,19 @@ class ContentControllerArticle extends JControllerForm
 
 		if ($user_rating > -1)
 		{
-			$url = $this->input->getString('url', '');
-			$id = $this->input->getInt('id', 0);
-			$viewName = $this->input->getString('view', $this->default_view);
-			$model = $this->getModel($viewName);
+                    $url = $this->input->getString('url', '');
+                    $id = $this->input->getInt('id', 0);
+                    $viewName = $this->input->getString('view', $this->default_view);
+                    $model = $this->getModel($viewName);
 
-			if ($model->storeVote($id, $user_rating))
-			{
-				$this->setRedirect($url, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
-			}
-			else
-			{
-				$this->setRedirect($url, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
-			}
+                    if ($model->storeVote($id, $user_rating))
+                    {
+                        $this->setRedirect($url, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
+                    }
+                    else
+                    {
+                        $this->setRedirect($url, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
+                    }
 		}
 	}
 }

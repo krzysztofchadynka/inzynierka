@@ -2,7 +2,7 @@
 <?php JHtml::_('behavior.tooltip'); ?>
 <h2><?= JText::_('COM_ROLES_USER_MANAGEMENT_LIST'); ?></h2>
 <form action="<?= JRoute::_('index.php?option=com_roles'); ?>" method="post" name="adminForm" id="adminForm">
-    <table class="adminlist">
+    <table class="adminlist table table-striped">
         <thead><?= $this->loadTemplate('head'); ?></thead>
         <tfoot><?= $this->loadTemplate('foot'); ?></tfoot>
         <tbody><?= $this->loadTemplate('body'); ?></tbody>

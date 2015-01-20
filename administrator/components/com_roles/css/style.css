@@ -1,0 +1,9 @@
+.inactive { display: none; }
+.starter-template { text-align: center; }
+.footer { border-top: 1px solid #eee; padding-top: 40px; }
+.footer p.component-name { float: left; }
+.footer p.component-author { float: right; }
+.row-fluid .span5 { margin-left: 30% !important; position: relative; }
+.control-group .control-label { float: left; }
+.control-group .control-label label { font-size: 15px; }
+.control-group .controls { float: right; margin-left: 0px !important; }

@@ -1,5 +1,6 @@
 <?php
 defined ('_JEXEC') or die('Restricted access');
+jimport('joomla.application.component.controller');
 
 class RolesController extends JControllerLegacy
 {
@@ -10,7 +11,9 @@ class RolesController extends JControllerLegacy
         $input->set('view', $input->getCmd('view', 'Users'));
         
         // call parent behavior
-        parent::display($cachable);
+        parent::display($cachable, $urlparams);
+        
+        //RolesHelper::addSubmenu('messages');
     }
 }
 

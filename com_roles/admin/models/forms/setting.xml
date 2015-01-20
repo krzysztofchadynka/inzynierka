@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="hidden" />
+        <field
+                name="header"
+                type="text"
+                label="COM_ROLES_SETTING_FIELD_HEADER_LABEL"
+                size="40"
+                class="inputbox"
+                default=""
+        />
+        <field
+                name="description"
+                type="text"
+                label="COM_ROLES_SETTING_FIELD_DESCRIPTION_LABEL"
+                size="40"
+                class="inputbox"
+                default=""
+        />
+        <field
+                name="image"
+                type="text"
+                label="COM_ROLES_SETTING_FIELD_IMAGE_LABEL"
+                size="40"
+                class="inputbox"
+                default=""
+        />
+        <field
+                name="user_info"
+                type="text"
+                label="COM_ROLES_SETTING_FIELD_USERINFO_LABEL"
+                size="40"
+                class="inputbox"
+                default=""
+        />
+        <field
+                name="role_info"
+                type="text"
+                label="COM_ROLES_SETTING_FIELD_ROLEINFO_LABEL"
+                size="40"
+                class="inputbox"
+                default=""
+        />
+        <field
+                name="categories_info"
+                type="text"
+                label="COM_ROLES_SETTING_FIELD_CATINFO_LABEL"
+                size="40"
+                class="inputbox"
+                default=""
+        />
+    </fieldset>
+</form>

@@ -36,7 +36,47 @@ class ContentController extends JControllerLegacy
 
 		parent::__construct($config);
 	}
-
+        
+        private function getCurrentCategoryID($art_id)
+        {
+            $db = JFactory::getDbo();
+            $query = $db->getQuery(true);
+            $query->select('catid')->from('#__content')->where('id='.$art_id);
+            $db->setQuery($query);
+            return $db->loadResult();
+        }
+        
+        private function getCurrentRoleID($user_id)
+        {
+            $db = JFactory::getDbo();
+            $query = $db->getQuery(true);
+            $query->select('role_id')->from('#__roles_user')->where('user_id='.$user_id);
+            $db->setQuery($query);
+            return $db->loadResult();
+        }
+        
+        private function checkIfCategoryExists($role_id, $cat_id)
+        {
+            $db = JFactory::getDbo();
+            $query = $db->getQuery(true);
+            $query->select('category_id')->from('#__roles_categories')->where('role_id='.$role_id);
+            $db->setQuery($query);
+            $results = $db->loadObjectList();
+            
+            foreach ($results as $result)
+            {
+                if ($result->category_id == $cat_id)
+                {
+                    return true;
+                    break;
+                }
+            }
+            
+            return false;
+        }
+        
+//        private function 
+        
 	/**
 	 * Method to display a view.
 	 *
@@ -48,36 +88,50 @@ class ContentController extends JControllerLegacy
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		$cachable = true;
+            $cachable = true;
 
-		// Set the default view name and format from the Request.
-		// Note we are using a_id to avoid collisions with the router and the return page.
-		// Frontend is a bit messier than the backend.
-		$id    = $this->input->getInt('a_id');
-		$vName = $this->input->getCmd('view', 'categories');
-		$this->input->set('view', $vName);
+            // Set the default view name and format from the Request.
+            // Note we are using a_id to avoid collisions with the router and the return page.
+            // Frontend is a bit messier than the backend.
+            $id    = $this->input->getInt('a_id');
+            $vName = $this->input->getCmd('view', 'categories');
+            $this->input->set('view', $vName);
 
-		$user = JFactory::getUser();
+            $user = JFactory::getUser();
 
-		if ($user->get('id') ||
-			($this->input->getMethod() == 'POST' &&
-				(($vName == 'category' && $this->input->get('layout') != 'blog') || $vName == 'archive' )))
-		{
-			$cachable = false;
-		}
+            if ($user->get('id') ||
+                    ($this->input->getMethod() == 'POST' &&
+                            (($vName == 'category' && $this->input->get('layout') != 'blog') || $vName == 'archive' )))
+            {
+                    $cachable = false;
+            }
 
-		$safeurlparams = array('catid' => 'INT', 'id' => 'INT', 'cid' => 'ARRAY', 'year' => 'INT', 'month' => 'INT', 'limit' => 'UINT', 'limitstart' => 'UINT',
-			'showall' => 'INT', 'return' => 'BASE64', 'filter' => 'STRING', 'filter_order' => 'CMD', 'filter_order_Dir' => 'CMD', 'filter-search' => 'STRING', 'print' => 'BOOLEAN', 'lang' => 'CMD', 'Itemid' => 'INT');
-
-		// Check for edit form.
-		if ($vName == 'form' && !$this->checkEditId('com_content.edit.article', $id))
-		{
-			// Somehow the person just went to the form - we don't allow that.
-			return JError::raiseError(403, JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
-		}
-
-		parent::display($cachable, $safeurlparams);
-
-		return $this;
+            $safeurlparams = array('catid' => 'INT', 'id' => 'INT', 'cid' => 'ARRAY', 'year' => 'INT', 'month' => 'INT', 'limit' => 'UINT', 'limitstart' => 'UINT',
+                    'showall' => 'INT', 'return' => 'BASE64', 'filter' => 'STRING', 'filter_order' => 'CMD', 'filter_order_Dir' => 'CMD', 'filter-search' => 'STRING', 'print' => 'BOOLEAN', 'lang' => 'CMD', 'Itemid' => 'INT');
+            
+            // Check for edit form.
+            if ($vName == 'form' && !$this->checkEditId('com_content.edit.article', $id))
+            {
+                    // Somehow the person just went to the form - we don't allow that.
+                    return JError::raiseError(403, JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+            }
+            
+            
+            $role_id = $this->getCurrentRoleID(JFactory::getUser()->id);
+            $cat_id = $this->getCurrentCategoryID(JRequest::getInt('id'));
+            //echo (int)$this->checkIfCategoryExists($role_id, $cat_id);
+            
+//            echo 'Article id: '.JRequest::getInt('id').'<br />';
+//            echo 'Category id: '.$this->getCurrentCategoryID(JRequest::getInt('id')).'<br />';
+//            $user_id = JFactory::getUser()->id;
+            
+            //$this->checkIfCategoryExists($role_id, $cat_id);
+            
+            if ($this->checkIfCategoryExists($role_id, $cat_id))
+                parent::display($cachable, $safeurlparams);
+            else
+                JFactory::getApplication()->enqueueMessage(JText::_('COM_ROLES_ACCESS_DENIED_MESSAGE'), 'Error');
+            
+            return $this;
 	}
 }

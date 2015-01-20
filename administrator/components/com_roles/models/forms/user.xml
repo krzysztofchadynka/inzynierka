@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <form>
     <fieldset>
-        <field name="id" type="hidden" />
-        <field name="username" type="text" label="COM_ROLES_USER_USERNAME_LABEL"
-            description="COM_ROLES_USER_USERNAME_DESC" size="40" class="inputbox"
-            default="" />
+        <field
+            name="id"
+            type="hidden"
+        />
     </fieldset>
 </form>

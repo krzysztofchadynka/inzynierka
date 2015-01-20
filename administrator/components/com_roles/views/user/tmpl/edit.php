@@ -1,26 +1,34 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 JHtml::_('behavior.tooltip');
+$url = 'index.php?option=com_roles&layout=edit&id=' . (int) $this->item->id;
 ?>
 
-<?php $url = 'index.php?option=com_roles&layout=edit&id='.(int)$this->item->id; ?>
+<div class="starter-template">
+    <h1><?= JText::_('COM_ROLES_USER_DETAILS'); ?></h1>
+    <p class="lead"><?= JText::_('COM_ROLES_USER_DETAILS_INFO'); ?></p>
+</div>
 
 <form action="<?= JRoute::_($url); ?>" method="post" name="adminForm" id="adminForm">
     <div class="form-horizontal">
         <fieldset class="adminform">
-            <legend><?= JText::_('COM_ROLES_USER_DETAILS'); ?></legend>
             <div class="row-fluid">
-                <div class="span6">
+                <div class="span5">
                     <?php foreach ($this->form->getFieldset() as $field): ?>
                         <div class="control-group">
-                            <div class="control-label"><?= $field->label; ?></div>
-                            <div class="controls"><?= $field->input; ?></div>
+                            <div class="control-label"><?php echo $field->label; ?></div>
+                            <div class="controls"><?php echo $field->input; ?></div>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
         </fieldset>
     </div>
-    <input type="hidden" name="task" value="user.edit" />
-    <?= JHtml::_('form.token'); ?>
+    <input type="hidden" name="task" value="helloworld.edit" />
+    <?php echo JHtml::_('form.token'); ?>
 </form>
+
+<footer class="footer">
+    <p class="component-name">Roles Management</p>
+    <p class="component-author">Krzysztof Chadynka Copyright 2014</p>
+</footer>

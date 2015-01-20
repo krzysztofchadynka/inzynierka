@@ -1,5 +1,9 @@
 <?php
 defined ('_JEXEC') or die('Restricted access');
+jimport('joomla.application.component.controller');
+
+// required helper file
+JLoader::register('RolesHelper', dirname(__FILE__).DS.'helpers'.DS.'roles.php');
 
 // get an instance of the controller prefixed by Roles
 $controller = JControllerLegacy::getInstance('Roles');

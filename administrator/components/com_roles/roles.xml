@@ -43,17 +43,20 @@
             <menu link="option=com_roles&amp;view=users">COM_ROLES_SUBMENU_USERS</menu>
             <menu link="option=com_roles&amp;view=roles">COM_ROLES_SUBMENU_ROLES</menu>
             <menu link="option=com_roles&amp;view=categories">COM_ROLES_SUBMENU_CATEGORIES</menu>
+            <menu link="option=com_roles&amp;view=settings">COM_ROLES_SUBMENU_SETTINGS</menu>
         </submenu>
         <files folder="admin">
             <filename>index.html</filename>
             <filename>roles.php</filename>
             <filename>controller.php</filename>
+            <filename>access.xml</filename>
             <folder>sql</folder>
             <folder>tables</folder>
             <folder>models</folder>
             <folder>views</folder>
             <folder>controllers</folder>
             <folder>language</folder>
+            <folder>helpers</folder>
         </files>
     </administration>
 </extension>
