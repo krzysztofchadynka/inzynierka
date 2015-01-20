@@ -7,3 +7,9 @@
 .control-group .control-label { float: left; }
 .control-group .control-label label { font-size: 15px; }
 .control-group .controls { float: right; margin-left: 0px !important; }
+
+/* FRONT */
+#com_roles_site { float: left; width: 100%; padding: 15px; }
+#com_roles_site #left { float: left; width: 50%; }
+#com_roles_site #right { float: left; width: 50%; }
+#com_roles_site #right img { width: 30%; float: right; padding-right: 150px; }

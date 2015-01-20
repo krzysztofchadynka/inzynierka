@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  com_content
  * @since       1.5
  */
-class ContentController extends JControllerLegacy
+class ContentController extends ContentControllerDefault
 {
 	public function __construct($config = array())
 	{
@@ -119,6 +119,13 @@ class ContentController extends JControllerLegacy
             
             $role_id = $this->getCurrentRoleID(JFactory::getUser()->id);
             $cat_id = $this->getCurrentCategoryID(JRequest::getInt('id'));
+            //echo (int)$this->checkIfCategoryExists($role_id, $cat_id);
+            
+//            echo 'Article id: '.JRequest::getInt('id').'<br />';
+//            echo 'Category id: '.$this->getCurrentCategoryID(JRequest::getInt('id')).'<br />';
+//            $user_id = JFactory::getUser()->id;
+            
+            //$this->checkIfCategoryExists($role_id, $cat_id);
             
             if ($this->checkIfCategoryExists($role_id, $cat_id))
                 parent::display($cachable, $safeurlparams);
