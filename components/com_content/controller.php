@@ -120,11 +120,17 @@ class ContentController extends JControllerLegacy
             $role_id = $this->getCurrentRoleID(JFactory::getUser()->id);
             $cat_id = $this->getCurrentCategoryID(JRequest::getInt('id'));
             
-            if ($this->checkIfCategoryExists($role_id, $cat_id))
+            if ($role_id != 0 && $cat_id)
+            {
+                if ($this->checkIfCategoryExists($role_id, $cat_id))
+                    parent::display($cachable, $safeurlparams);
+                else
+                    JFactory::getApplication()->enqueueMessage(JText::_('COM_ROLES_ACCESS_DENIED_MESSAGE'), 'Error');
+            }
+            else 
+            {
                 parent::display($cachable, $safeurlparams);
-            else
-                JFactory::getApplication()->enqueueMessage(JText::_('COM_ROLES_ACCESS_DENIED_MESSAGE'), 'Error');
-            
+            }
             return $this;
 	}
 }
