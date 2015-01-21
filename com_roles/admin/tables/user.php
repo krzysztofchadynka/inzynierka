@@ -1,13 +1,12 @@
 <?php
 defined('_JEXEC') or die;
 
-class RolesTableTest extends JTable
+class RolesTableUser extends JTable
 {
     public function __construct($db) 
     {
-        parent::__construct('#__test', 'id', $db);
+        parent::__construct('#__roles_user', 'id', $db);
         
         JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_roles.note'));
     }
 }
-

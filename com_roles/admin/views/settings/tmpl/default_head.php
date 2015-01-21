@@ -1,7 +1,7 @@
 <?php defined('_JEXEC') or die('Restricted Access'); ?>
 <tr>
-    <th><?= JHtml::_('grid.checkall'); ?></th>
-    <th></th>
+    <th class="inactive"><?= JHtml::_('grid.checkall'); ?></th>
+    <th class="inactive"></th>
     <th><?= JText::_('COM_ROLES_SETTINGS_HEADING_HEADER'); ?></th>
     <th><?= JText::_('COM_ROLES_SETTINGS_HEADING_DESC'); ?></th>
     <th><?= JText::_('COM_ROLES_SETTINGS_HEADING_IMAGE'); ?></th>

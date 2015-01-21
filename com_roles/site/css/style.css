@@ -1,0 +1,4 @@
+#com_roles_site { float: left; width: 100%; padding: 15px; }
+#com_roles_site #roles-left { float: left; width: 50%; }
+#com_roles_site #roles-right { float: left; width: 50%; }
+#com_roles_site #roles-right img { width: 30%; float: right; padding-right: 150px; }

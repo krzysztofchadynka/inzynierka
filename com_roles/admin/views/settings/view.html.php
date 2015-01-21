@@ -16,9 +16,7 @@ class RolesViewSettings extends JViewLegacy
     protected function addToolBar() 
     {
         JToolBarHelper::title(JText::_('COM_ROLES_MANAGER_SETTINGS'));
-        JToolBarHelper::deleteList('', 'settings.delete');
         JToolBarHelper::editList('setting.edit');
-        JToolBarHelper::addNew('setting.add');
     }
     
     public function display($tpl = null) 

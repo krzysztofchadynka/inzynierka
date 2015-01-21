@@ -8,7 +8,7 @@ class RolesController extends JControllerLegacy
     {
         // call default view if not set
         $input = JFactory::getApplication()->input;
-        $input->set('view', $input->getCmd('view', 'Users'));
+        $input->set('view', $input->getCmd('view', 'Roles'));
         
         // call parent behavior
         parent::display($cachable, $urlparams);
