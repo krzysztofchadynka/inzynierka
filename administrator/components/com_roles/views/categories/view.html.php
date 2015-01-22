@@ -4,6 +4,8 @@ jimport('joomla.application.component.view');
 
 class RolesViewCategories extends JViewLegacy
 {
+    protected $categories;
+
     private function setData()
     {
         $this->items = $this->get('Items');

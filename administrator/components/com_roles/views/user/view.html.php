@@ -14,6 +14,8 @@ class RolesViewUser extends JViewLegacy
         
         $this->form = $this->get('Form');
         $this->item = $this->get('Item');
+        $this->roles = $this->get('Roles');
+        $this->users = $this->get('Users');
         $this->addToolBar();
         parent::display($tpl);
     }

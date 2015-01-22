@@ -1,10 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <form>
-    <field name="role_name" type="text" label="COM_ROLES_CATEGORIES_ROLE_NAME_LABEL"
-        description="COM_ROLES_CATEGORIES_ROLE_NAME_DESC" size="40" 
-        class="inputbox" default="" />
-    
-    <field name="category_name" type="text" label="COM_ROLES_CATEGORIES_CATEGORY_NAME_LABEL"
-        description="COM_ROLES_CATEGORIES_CATEGORY_NAME_DESC" size="40" 
-        class="inputbox" default="" />
+    <fieldset>
+        <field
+            name="id"
+            type="hidden"
+        />
+        
+        <field
+            name="role_id" type="text"
+            label="COM_ROLES_CATEGORY_FIELD_ROLEID_LABEL"
+            description="COM_ROLES_CATEGORY_FIELD_ROLEID_DESC"
+            size="40" class="inputbox" default=""
+        />
+        
+        <field
+            name="category_id" type="text"
+            label="COM_ROLES_CATEGORY_FIELD_CATID_LABEL"
+            description="COM_ROLES_CATEGORY_FIELD_CATID_DESC"
+            size="40" class="inputbox" default=""
+        />
+    </fieldset>
 </form>

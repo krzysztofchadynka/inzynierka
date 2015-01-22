@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 
-class RolesTableRolesCategories extends JTable
+class RolesTableCategories extends JTable
 {
     public function __construct($db) 
     {

@@ -22,6 +22,20 @@ $url = 'index.php?option=com_roles&layout=edit&id=' . (int) $this->item->id;
                     <?php endforeach; ?>
                 </div>
             </div>
+            <div class="row-fluid">
+                <div class="col-md-4">
+                    <h2>Roles</h2>
+                    <?php foreach ($this->roles as $cat): ?>
+                        <p><?= $cat[0].' - '.$cat[1]; ?></p>
+                    <?php endforeach; ?>
+                </div>
+                <div class="col-md-4">
+                    <h2>Users</h2>
+                    <?php foreach ($this->users as $cat): ?>
+                        <p><?= $cat[0].' - '.$cat[1]; ?></p>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </fieldset>
     </div>
     <input type="hidden" name="task" value="helloworld.edit" />

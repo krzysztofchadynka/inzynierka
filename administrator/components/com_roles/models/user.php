@@ -4,6 +4,8 @@ jimport('joomla.application.component.modeladmin');
 
 class RolesModelUser extends JModelAdmin
 {
+    protected $roles, $users;
+    
     public function getTable($type = 'User', $prefix = 'RolesTable', $config = array()) 
     {
         return JTable::getInstance($type, $prefix, $config);
@@ -28,5 +30,23 @@ class RolesModelUser extends JModelAdmin
             $data = $this->getItem();
         }
         return $data;
+    }
+    
+    public function getRoles()
+    {
+        $db = JFactory::getDbo();
+        $query = "SELECT role_id, name FROM #__roles_role";
+        $db->setQuery($query);
+        
+        return $db->loadRowList();
+    }
+    
+    public function getUsers()
+    {
+        $db = JFactory::getDbo();
+        $query = "SELECT id, username FROM #__users";
+        $db->setQuery($query);
+        
+        return $db->loadRowList();
     }
 }

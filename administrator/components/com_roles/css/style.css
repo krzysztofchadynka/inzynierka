@@ -7,3 +7,4 @@
 .control-group .control-label { float: left; }
 .control-group .control-label label { font-size: 15px; }
 .control-group .controls { float: right; margin-left: 0px !important; }
+.adminform .col-md-4 { width: 50%; float: left; }
